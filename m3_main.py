@@ -23,7 +23,6 @@ if __name__ == "__main__":
         include_columns=(["block_number", "output_data"]),
         to_address=[MULTICALL3_ADDRESS],
         call_data=[m3_calldata],
-        label="exchange_rate",
         output_format="polars",
         blocks=["-5:latest"],
         no_verbose=True,

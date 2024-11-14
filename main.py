@@ -7,13 +7,13 @@ UNIV2_WETH_USDC = "0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc"
 GET_RESERVES_4b = hexstr_to_bytes("0x0902f1ac")
 
 if __name__ == "__main__":
-    # Multicall3 encoded calldasta
+
+    # Using cryo in Python
     df = cryo.collect(
         "eth_calls",
         include_columns=(["block_number", "output_data"]),
         to_address=[UNIV2_WETH_USDC],
         call_data=[bytes_to_hexstr(GET_RESERVES_4b)],
-        label="exchange_rate",
         output_format="polars",
         blocks=["-5:latest"],
         no_verbose=True,
