@@ -25,15 +25,13 @@ if __name__ == "__main__":
         call_data=[m3_calldata],
         label="exchange_rate",
         output_format="polars",
-        blocks=["latest"],
+        blocks=["-5:latest"],
         no_verbose=True,
         rpc="https://eth.merkle.io",
     )
 
     # Get the output data
-    output_data = df['output_data'].to_list()
-
-    for cur_row in df.to_dicts():
+    for cur_row in df.sort('block_number').to_dicts():
         output_data = cur_row['output_data']
         block_number = cur_row['block_number']
 
